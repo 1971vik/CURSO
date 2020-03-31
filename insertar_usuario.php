@@ -6,7 +6,7 @@
      $edad = $_POST['edad'];
      $pais = $_POST['pais'];
      $correo = $_POST['correo'];
-     $ = $_POST['phone'];
+     $phone = $_POST['phone'];
 
   function validarDatos($nombre, $edad, $pais, $correo){
 	if($nombre == ''){
@@ -23,7 +23,7 @@
 	   return true;
  }
 
-	  if(validarDatos($nombre, $edad, $pais, $correo)){
+	  if(validarDatos($nombre, $edad, $pais, $correo,$phone)){
 		   $conexion = new mysqli('localhost','root', '', 'curso_php.ajax3');
 	       $conexion->set_charset('utf8');
 

@@ -30,7 +30,7 @@ var	usuario_nombre,
 				  elemento.innerHTML += ("<td>" + datos[i].edad + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].pais + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].correo + "</td>");
-				   elemento.innerHTML += ("<td>" + datos[i].phone + "</td>");
+				  elemento.innerHTML += ("<td>" + datos[i].phone + "</td>");
 				  tabla.appendChild(elemento);
 		    }
 		  }

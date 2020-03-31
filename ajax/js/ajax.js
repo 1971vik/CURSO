@@ -7,11 +7,11 @@ btn.addEventListener('click',function(){
 	//peticion.open('GET', 'http://www.json-generator.com/api/json/get/cgpRCMgxLm?indent=2');
        peticion.open('GET', 'php/usuarios.php');
 	loader.classList.add('active');
-	
+
 	peticion.onload = function(){
 		//console.log(JSON.parse(peticion.responseText)[3].nombre);
 		var datos = JSON.parse(peticion.responseText);
-		
+
 		//for (var i = 0; i <5; i++){
 			//var elemento = document.createElement('tr');
 		   // elemento.innerHTML += ("<td>" + datos[i].id + "</td>");
@@ -20,7 +20,7 @@ btn.addEventListener('click',function(){
 		   // elemento.innerHTML += ("<td>" + datos[i].pais + "</td>");
 			//elemento.innerHTML += ("<td>" + datos[i].correo + "</td>");
 			//document.getElementById('tabla').appendChild(elemento);
-			
+
 		//}
 		datos.forEach(persona => {
 			var elemento = document.createElement('tr');
@@ -29,16 +29,17 @@ btn.addEventListener('click',function(){
 			elemento.innerHTML += ("<td>" + persona.edad + "</td>");
 		    elemento.innerHTML += ("<td>" + persona.pais + "</td>");
 			elemento.innerHTML += ("<td>" + persona.correo + "</td>");
+			elemento.innerHTML += ("<td>" + persona.phone + "</td>");
 			document.getElementById('tabla').appendChild(elemento);
-		
+
 		});
 	}
-	
+
 	peticion.onreadystatechange = function(){
 		if(peticion.readyState == 4 && peticion.status == 200){
 			loader.classList.remove('active');
 		}
 	}
-	
+
 	peticion.send();
 });
