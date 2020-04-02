@@ -3,7 +3,7 @@
 error_reporting(0);
 header('Content-type: application/json; charset=utf-8');
 
-$conexion = new mysqli('localhost', 'root', '', 'curso_php.ajax');
+$conexion = new mysqli('localhost', 'root', '', 'curso_php.ajax3');
 if($conexion->connect_errno){
 	$respuesta = [
 	    'error' => true

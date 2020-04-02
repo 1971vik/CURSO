@@ -3,7 +3,7 @@
 error_reporting(0);
 header('Content-type: application/json; charset=utf-8');
 
-$conexion = new mysqli('localhost', 'root', '', 'curso_php.ajax3');
+$conexion = new mysqli('localhost', 'root', '', 'curso_php.ajax');
 if($conexion->connect_errno){
 	$respuesta = [
 	    'error' => true
@@ -26,8 +26,7 @@ if($conexion->connect_errno){
 		         'nombre'    => $fila['nombre'],
 				 'edad'      => $fila ['edad'],
 				 'pais'      => $fila ['pais'],
-				 'correo'    => $fila ['correo'],
-				 'phone'    => $fila ['phone']
+				 'correo'    => $fila ['correo']
 			];
 			array_push($respuesta, $usuario);
 	     }

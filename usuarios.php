@@ -8,14 +8,16 @@
 			'nombre' => 'Carlos',
 			'edad'=> 23,
 			'pais' => 'Mexico',
-		     'correo'=> 'correo@correo.com'
+		     'correo'=> 'correo@correo.com',
+		     'phone'=> '240 3644770'
 		  ],
 		  [
 		    'id' => '5b9c49f09b0a13367ad35ff9',
 			'nombre' => 'Alberto',
 			'edad'=> 30,
 			'pais' => 'Colombia',
-		     'correo' =>'correo@correo.com'
+		     'correo' =>'correo@correo.com',
+		     'phone'=> '240 3644771'
 
 			]
 		];
