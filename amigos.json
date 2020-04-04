@@ -1,13 +1,18 @@
  [
+
  {
-	 "nombre": "Alejandro",
-	  "edad": 24,
-	  "pais": "Espana"
- },
- {
-	  "nombre": "Manuel",
-	  "edad": 30,
-	  "pais": "Colombia"
- }
- 
- ];
+     "nombre": "Victor",
+     "edad": 49,
+     "pais": "Mexico",
+    "JSONstring": "240 3644770"
+   },
+
+  {
+     "nombre": "Jose",
+     "edad": 59,
+     "pais": "Espana",
+     "JSONstring": "240 3644220"
+   }
+
+
+];

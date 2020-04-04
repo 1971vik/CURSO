@@ -4,15 +4,21 @@ var btn_cargar = document.getElementById('btn_cargar_usuarios'),
 	loader = document.getElementById('loader');
 
 var	usuario_nombre,
-    usuario_edad,
+    usuario_apodo,
 	usuario_pais,
-	usuario_correo;
+	usuario_correo,
+	usuario_telefono;
+
 
 	function cargarUsuarios(){
+<<<<<<< HEAD
 		tabla.innerHTML = '<tr><th>ID</th><th>Nombre</th><th>Edad</th><th>Pais</th><th>Correo</th></tr>';
+=======
+		tabla.innerHTML = '<tr><th>ID</th><th>nombre</th><th>apodo</th><th>pais</th><th>correo</th><th>telefono</th></tr>';
+>>>>>>> experimento3
 
 		var peticion = new XMLHttpRequest();
-		peticion.open('GET', 'php/leer_datos.php');
+		peticion.open('GET', 'php/leer-datos.php');
 
 		loader.classList.add('active');
 
@@ -26,9 +32,10 @@ var	usuario_nombre,
                   var elemento = document.createElement('tr');
 				  elemento.innerHTML += ("<td>" + datos[i].id + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
-				  elemento.innerHTML += ("<td>" + datos[i].edad + "</td>");
+				  elemento.innerHTML += ("<td>" + datos[i].apodo + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].pais + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].correo + "</td>");
+				  elemento.innerHTML += ("<td>" + datos[i].telefono + "</td>");
 				  tabla.appendChild(elemento);
 		    }
 		  }
@@ -51,14 +58,23 @@ peticion.onreadystatechange = function(){
 			peticion.open('POST', 'php/insertar_usuario.php');
 
 			usuario_nombre = formulario.nombre.value.trim();
+<<<<<<< HEAD
 			usuario_edad = parseInt(formulavrio.edad.value.trim());
+=======
+			usuario_edad = formulario.apodo.value.trim();
+>>>>>>> experimento3
 			usuario_pais = formulario.pais.value.trim();
 			usuario_correo = formulario.correo.value.trim();
+			usuario_telefono = formulario.telefono.value.trim();
 
 			if(formulario_valido()){
 				error_box.classList.remove('active');
 
+<<<<<<< HEAD
 				var parametros = 'nombre='+ usuario_nombre + '&edad='+ usuario_edad +'&pais='+ usuario_pais +'&correo=' + usuario_correo ;
+=======
+				var parametros = 'nombre='+ usuario_nombre + '&apodo='+ usuario_apodo +'&pais='+ usuario_pais +'&correo=' + usuario_correo + '&telefono=' + usuario_telefono;
+>>>>>>> experimento3
 
 				peticion.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -67,9 +83,10 @@ peticion.onreadystatechange = function(){
 				peticion.onload = function(){
 					cargarUsuarios();
 					formulario.nombre.value = '';
-					formulario.edad.value = '';
+					formulario.apodo.value = '';
 					formulario.correo.value = '';
 					formulario.pais.value = '';
+					formulario.telefono.value = '';
 				}
 				peticion.onreadystatechange = function(){
 					if(peticion.readyState == 4 && peticion.status == 200){
@@ -98,11 +115,13 @@ peticion.onreadystatechange = function(){
 		    function formulario_valido(){
 				if(usuario_nombre == ''){
 					return false;
-				}else if(isNaN(usuario_edad)){
+				}else if(usuario_apodo == ''){
 					return false;
 			}else if(usuario_pais == ''){
 				    return false;
 			}else if(usuario_correo == ''){
+				    return false;
+			}else if(usuario_telefono == ''){
 				    return false;
 			}
 			   return true;
