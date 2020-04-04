@@ -3,17 +3,17 @@
      error_reporting(0);
      header('Content-type: application/json; charset=utf-8');
      $nombre = $_POST['nombre'];
-     $edad = $_POST['edad'];
+     $apodo = $_POST['apodo'];
      $pais = $_POST['pais'];
      $correo = $_POST['correo'];
      $telefono = $_POST['telefono'];
 
 
 
-  function validarDatos($nombre, $edad, $pais, $correo, $telefono){
+  function validarDatos($nombre, $apodo, $pais, $correo, $telefono){
 	if($nombre == ''){
 		return false;
-	} elseif($edad =='' || is_int($edad)){
+	} elseif($apodo ==''){
 		return false;
 	} elseif($pais == ''){
 		return false;
@@ -25,7 +25,7 @@
 	   return true;
  }
 
-	  if(validarDatos($nombre, $edad, $pais, $correo, $telefono)){
+	  if(validarDatos($nombre, $apodo, $pais, $correo, $telefono)){
 		   $conexion = new mysqli('localhost','root', '', 'curso_php.ajax3');
 	       $conexion->set_charset('utf8');
 
@@ -33,7 +33,7 @@
 		   $respuesta = ['error' => true];
 	    }else {
 			$statement = $conexion->prepare("INSERT INTO usuarios(nombre,edad,pais,correo,telefono) VALUES(?,?,?,?,?)");
-			$statement->bind_param("sisss", $nombre, $edad, $pais, $correo, $telefono);
+			$statement->bind_param("sssss", $nombre, $edad, $pais, $correo, $telefono);
 			$statement->execute();
 			//puedes mostrar un mensaje de rerror
 			if($conexion->affect_rows <= 0){

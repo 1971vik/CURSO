@@ -28,7 +28,7 @@ if($conexion->connect-errno){
 
                'id'       => $fila['ID'],
                'nombre'   => $fila['nombre'],
-               'edad'     => $fila ['edad'],
+               'apodo'     => $fila ['apodo'],
                'pais'     => $fila['pais'],
                'correo'   => $fila['correo'],
                'telefono' => $fila['telefono']

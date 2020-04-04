@@ -4,14 +4,14 @@ var btn_cargar = document.getElementById('btn_cargar_usuarios'),
 	loader = document.getElementById('loader');
 
 var	usuario_nombre,
-    usuario_edad,
+    usuario_apodo,
 	usuario_pais,
 	usuario_correo,
 	usuario_telefono;
 
 
 	function cargarUsuarios(){
-		tabla.innerHTML = '<tr><th>ID</th><th>nombre</th><th>edad</th><th>pais</th><th>correo</th><th>telefono</th></tr>';
+		tabla.innerHTML = '<tr><th>ID</th><th>nombre</th><th>apodo</th><th>pais</th><th>correo</th><th>telefono</th></tr>';
 
 		var peticion = new XMLHttpRequest();
 		peticion.open('GET', 'php/leer-datos.php');
@@ -28,7 +28,7 @@ var	usuario_nombre,
                   var elemento = document.createElement('tr');
 				  elemento.innerHTML += ("<td>" + datos[i].id + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
-				  elemento.innerHTML += ("<td>" + datos[i].edad + "</td>");
+				  elemento.innerHTML += ("<td>" + datos[i].apodo + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].pais + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].correo + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].telefono + "</td>");
@@ -54,7 +54,7 @@ peticion.onreadystatechange = function(){
 			peticion.open('POST', 'php/insertar_usuario.php');
 
 			usuario_nombre = formulario.nombre.value.trim();
-			usuario_edad = parseInt(formulario.edad.value.trim());
+			usuario_edad = formulario.apodo.value.trim();
 			usuario_pais = formulario.pais.value.trim();
 			usuario_correo = formulario.correo.value.trim();
 			usuario_telefono = formulario.telefono.value.trim();
@@ -62,7 +62,7 @@ peticion.onreadystatechange = function(){
 			if(formulario_valido()){
 				error_box.classList.remove('active');
 
-				var parametros = 'nombre='+ usuario_nombre + '&edad='+ usuario_edad +'&pais='+ usuario_pais +'&correo=' + usuario_correo + '&telefono=' + usuario_telefono;
+				var parametros = 'nombre='+ usuario_nombre + '&apodo='+ usuario_apodo +'&pais='+ usuario_pais +'&correo=' + usuario_correo + '&telefono=' + usuario_telefono;
 
 				peticion.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -71,7 +71,7 @@ peticion.onreadystatechange = function(){
 				peticion.onload = function(){
 					cargarUsuarios();
 					formulario.nombre.value = '';
-					formulario.edad.value = '';
+					formulario.apodo.value = '';
 					formulario.correo.value = '';
 					formulario.pais.value = '';
 					formulario.telefono.value = '';
@@ -103,7 +103,7 @@ peticion.onreadystatechange = function(){
 		    function formulario_valido(){
 				if(usuario_nombre == ''){
 					return false;
-				}else if(isNaN(usuario_edad)){
+				}else if(usuario_apodo == ''){
 					return false;
 			}else if(usuario_pais == ''){
 				    return false;
