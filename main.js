@@ -16,7 +16,7 @@ btn.addEventListener('click', function(){
       var elemento = document.createElement('tr');
              elemento.innerHTML += ("<td>" + datos[i].id + "</td>");
              elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
-              elemento.innerHTML += ("<td>" + datos[i].edad + "</td>");
+              elemento.innerHTML += ("<td>" + datos[i].apodo + "</td>");
               elemento.innerHTML += ("<td>" + datos[i].pais + "</td>");
               elemento.innerHTML += ("<td>" + datos[i].correo + "</td>");
              elemento.innerHTML += ("<td>" + datos[i].telefono + "</td>");

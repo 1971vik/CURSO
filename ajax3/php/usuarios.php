@@ -6,16 +6,16 @@ $respuesta = [
       [
       	'id' => '5b9c49f09b0a13367ad35ff9',
       	'nombre' => 'Victor',
-      	'edad' => 49,
+      	'apodo' => vik,
       	'pais' => 'Mexico',
       	'correo' => 'correo@correo.com',
       	'telefono' => '2403644770'
 
       ],
-      [
+
        'id' => '5b9c49f09b0a13367ad35ff9',
       	'nombre' => 'Jose',
-      	'edad' => 59,
+      	'apodo' => chepe,
       	'pais' => 'Espana',
       	'correo' => 'correo@correo.com',
       	'telefono' => '2403644770'
