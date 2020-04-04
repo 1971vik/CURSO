@@ -6,13 +6,15 @@ var btn_cargar = document.getElementById('btn_cargar_usuarios'),
 var	usuario_nombre,
     usuario_edad,
 	usuario_pais,
-	usuario_correo;
+	usuario_correo,
+	usuario_telefono;
+
 
 	function cargarUsuarios(){
-		tabla.innerHTML = '<tr><th>ID</th><th>nombre</th><th>edad</th><th>pais</th><th>correo</th></tr>';
+		tabla.innerHTML = '<tr><th>ID</th><th>nombre</th><th>edad</th><th>pais</th><th>correo</th><th>telefono</th></tr>';
 
 		var peticion = new XMLHttpRequest();
-		peticion.open('GET', 'php/leer_datos.php');
+		peticion.open('GET', 'php/leer-datos.php');
 
 		loader.classList.add('active');
 
@@ -29,6 +31,7 @@ var	usuario_nombre,
 				  elemento.innerHTML += ("<td>" + datos[i].edad + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].pais + "</td>");
 				  elemento.innerHTML += ("<td>" + datos[i].correo + "</td>");
+				  elemento.innerHTML += ("<td>" + datos[i].telefono + "</td>");
 				  tabla.appendChild(elemento);
 		    }
 		  }
@@ -54,11 +57,12 @@ peticion.onreadystatechange = function(){
 			usuario_edad = parseInt(formulario.edad.value.trim());
 			usuario_pais = formulario.pais.value.trim();
 			usuario_correo = formulario.correo.value.trim();
+			usuario_telefono = formulario.telefono.value.trim();
 
 			if(formulario_valido()){
 				error_box.classList.remove('active');
 
-				var parametros = 'nombre='+ usuario_nombre + '&edad='+ usuario_edad +'&pais='+ usuario_pais +'&correo=' + usuario_correo;
+				var parametros = 'nombre='+ usuario_nombre + '&edad='+ usuario_edad +'&pais='+ usuario_pais +'&correo=' + usuario_correo + '&telefono=' + usuario_telefono;
 
 				peticion.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -70,6 +74,7 @@ peticion.onreadystatechange = function(){
 					formulario.edad.value = '';
 					formulario.correo.value = '';
 					formulario.pais.value = '';
+					formulario.telefono.value = '';
 				}
 				peticion.onreadystatechange = function(){
 					if(peticion.readyState == 4 && peticion.status == 200){
@@ -103,6 +108,8 @@ peticion.onreadystatechange = function(){
 			}else if(usuario_pais == ''){
 				    return false;
 			}else if(usuario_correo == ''){
+				    return false;
+			}else if(usuario_telefono == ''){
 				    return false;
 			}
 			   return true;

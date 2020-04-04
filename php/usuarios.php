@@ -1,27 +1,32 @@
 <?php
 
-	 header('Content-type: application/json; charset=utf-8');
+ header('Content-type: application/json; charset=utf-8');
 
-     $respuesta = [
-         [
-            'id' => '5b9c49f09b0a13367ad35ff9',
-			'nombre' => 'Carlos',
-			'edad'=> 23,
-			'pais' => 'Mexico',
-		     'correo'=> 'correo@correo.com'
-		  ],
-		  [
-		    'id' => '5b9c49f09b0a13367ad35ff9',
-			'nombre' => 'Alberto',
-			'edad'=> 30,
-			'pais' => 'Colombia',
-		     'correo' =>'correo@correo.com'
+$respuesta = [
+      [
+      	'id' => '5b9c49f09b0a13367ad35ff9',
+      	'nombre' => 'Victor',
+      	'edad' => 49,
+      	'pais' => 'Mexico',
+      	'correo' => 'correo@correo.com',
+      	'telefono' => '2403644770'
 
-			]
-		];
-		echo json_encode($respuesta);
-		//echo '<pre>';
-		//var_dump($respuesta);
-		//echo '</pre>';
+      ],
+      [
+       'id' => '5b9c49f09b0a13367ad35ff9',
+      	'nombre' => 'Jose',
+      	'edad' => 59,
+      	'pais' => 'Espana',
+      	'correo' => 'correo@correo.com',
+      	'telefono' => '2403644770'
+      ]
+];
 
-	//echo '[{"nombre":"Carlos"},{"nombre":"Alejabdro"}]';
+    echo json_encode($respuesta);
+  //echo '<pre>'
+
+  //var_dump($respuesta);
+
+  //echo '</pre'>
+
+//echo '[{"nombre": "Carlos"}, {"nombre": "Victor"}]';
