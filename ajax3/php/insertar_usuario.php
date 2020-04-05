@@ -32,8 +32,8 @@
 	   if($conexion->connect_errno){
 		   $respuesta = ['error' => true];
 	    }else {
-			$statement = $conexion->prepare("INSERT INTO usuarios(nombre,edad,pais,correo,telefono) VALUES(?,?,?,?,?)");
-			$statement->bind_param("sssss", $nombre, $edad, $pais, $correo, $telefono);
+			$statement = $conexion->prepare("INSERT INTO usuarios(nombre,apodo,pais,correo,telefono) VALUES(?,?,?,?,?)");
+			$statement->bind_param("sssss", $nombre, $apodo, $pais, $correo, $telefono);
 			$statement->execute();
 			//puedes mostrar un mensaje de rerror
 			if($conexion->affect_rows <= 0){

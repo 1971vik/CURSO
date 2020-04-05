@@ -58,11 +58,15 @@ peticion.onreadystatechange = function(){
 			peticion.open('POST', 'php/insertar_usuario.php');
 
 			usuario_nombre = formulario.nombre.value.trim();
+<<<<<<< HEAD:js/main.js
 <<<<<<< HEAD
 			usuario_edad = parseInt(formulavrio.edad.value.trim());
 =======
 			usuario_edad = formulario.apodo.value.trim();
 >>>>>>> experimento3
+=======
+			usuario_apodo = formulario.apodo.value.trim();
+>>>>>>> experimento3:ajax3/js/main.js
 			usuario_pais = formulario.pais.value.trim();
 			usuario_correo = formulario.correo.value.trim();
 			usuario_telefono = formulario.telefono.value.trim();
