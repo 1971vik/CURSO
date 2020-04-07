@@ -11,11 +11,8 @@ var	usuario_nombre,
 
 
 	function cargarUsuarios(){
-<<<<<<< HEAD
-		tabla.innerHTML = '<tr><th>ID</th><th>Nombre</th><th>Edad</th><th>Pais</th><th>Correo</th></tr>';
-=======
-		tabla.innerHTML = '<tr><th>ID</th><th>nombre</th><th>apodo</th><th>pais</th><th>correo</th><th>telefono</th></tr>';
->>>>>>> experimento3
+
+		tabla.innerHTML = '<tr><th>ID</th><th>Nombre</th><th>Apodo</th><th>Pais</th><th>Correo</th><th>Telefono</th></tr>';
 
 		var peticion = new XMLHttpRequest();
 		peticion.open('GET', 'php/leer-datos.php');
@@ -58,15 +55,7 @@ peticion.onreadystatechange = function(){
 			peticion.open('POST', 'php/insertar_usuario.php');
 
 			usuario_nombre = formulario.nombre.value.trim();
-<<<<<<< HEAD:js/main.js
-<<<<<<< HEAD
-			usuario_edad = parseInt(formulavrio.edad.value.trim());
-=======
-			usuario_edad = formulario.apodo.value.trim();
->>>>>>> experimento3
-=======
 			usuario_apodo = formulario.apodo.value.trim();
->>>>>>> experimento3:ajax3/js/main.js
 			usuario_pais = formulario.pais.value.trim();
 			usuario_correo = formulario.correo.value.trim();
 			usuario_telefono = formulario.telefono.value.trim();
@@ -74,11 +63,9 @@ peticion.onreadystatechange = function(){
 			if(formulario_valido()){
 				error_box.classList.remove('active');
 
-<<<<<<< HEAD
-				var parametros = 'nombre='+ usuario_nombre + '&edad='+ usuario_edad +'&pais='+ usuario_pais +'&correo=' + usuario_correo ;
-=======
+
+
 				var parametros = 'nombre='+ usuario_nombre + '&apodo='+ usuario_apodo +'&pais='+ usuario_pais +'&correo=' + usuario_correo + '&telefono=' + usuario_telefono;
->>>>>>> experimento3
 
 				peticion.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
