@@ -11,7 +11,7 @@
 <body>
 	<div class="contenedor">
 		<h1 class="titulo">Regístrate</h1>
-		
+
 		<hr class="border">
 
 		<form class="formulario" name="login" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">

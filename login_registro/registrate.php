@@ -4,6 +4,7 @@
 # Si ya tiene una sesion redirigimos al contenido, para que no pueda volver a registrar un usuario.
 if (isset($_SESSION['usuario'])) {
 	header('Location: index.php');
+	die();
 }
 
 // Comprobamos si ya han sido enviado los datos
@@ -15,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // // Tambien podemos limpiar mediante las funciones
 // 	# El problema es que si lo hacemos de esta forma no estamos eliminando caracteres especiales, solo los transformamos.
-	
+
 // 	// La funcion htmlspecialchars() convierte caracteres especiales en entidades HTML, (&, "", '', <, >)
 // 	$usuario = htmlspecialchars($_POST['usuario']);
 // 	// La funcion trim() elimina espacio en blanco al inicio y final de la cadena de texo
@@ -27,15 +28,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	// Comprobamos que ninguno de los campos este vacio.
 	if (empty($usuario) or empty($password) or empty($password2)) {
-		$errores .= '<li>Por favor rellena todos los datos correctamente</li>';
+		$errores = '<li>Por favor rellena todos los datos correctamente</li>';
 	} else {
 
 		// Comprobamos que el usuario no exista ya.
 		try {
 			$conexion = new PDO('mysql:host=localhost;dbname=login_practica', 'root', '');
 		} catch (PDOException $e) {
-			echo "Error:" . $e->getMessage();}
-		
+			echo "Error:" . $e->getMessage();
+		}
 
 		$statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
 		$statement->execute(array(':usuario' => $usuario));
@@ -49,6 +50,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 
 		// Hasheamos nuestra contraseña para protegerla un poco.
+		# OJO: La seguridad es un tema muy complejo, aqui solo estamos haciendo un hash de la contraseña,
+		# pero esto no asegura por completo la informacion encriptada.
 		$password = hash('sha512', $password);
 		$password2 = hash('sha512', $password2);
 
@@ -65,6 +68,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 				':usuario' => $usuario,
 				':pass' => $password
 			));
+
+
 
 		// Despues de registrar al usuario redirigimos para que inicie sesion.
 		header('Location: login.php');

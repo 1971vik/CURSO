@@ -7,6 +7,8 @@ if (isset($_SESSION['usuario'])) {
 	die();
 }
 
+$errores = '';
+
 // Comprobamos si ya han sido enviado los datos
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);

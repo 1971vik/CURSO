@@ -37,7 +37,7 @@ a:hover {
 
 .border {
 	border:none;
-	margin-bottom: 5px; 
+	margin-bottom: 5px;
 	border-top:10px solid #B8711B;
 	background: none;
 	color:none;
@@ -105,7 +105,7 @@ a:hover {
 }
 
 .formulario .error ul li {
-	margin-bottom: 10px;	
+	margin-bottom: 10px;
 }
 
 .formulario .submit-btn {
